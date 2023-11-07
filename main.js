@@ -6,6 +6,9 @@ const EDIT_TODO_KEY = 'todoId'
 localStorage.setItem(EDIT_TODO_KEY, '')
 //Getting button for event listener
 const addButton = document.getElementById('add-todo')
+//Getting button for resend
+const resetButton = document.getElementById('reset')
+
 //Displaying all existing ToDos from storage. On loading page
 displayAllToDos()
 
@@ -190,3 +193,10 @@ addButton.addEventListener('click', () => {
     addButton.value = 'Add todo'
   }
 })
+
+//Event listener for reset button
+resetButton.addEventListener('click', () => {
+  const resetData = JSON.stringify([])
+  localStorage.setItem(STORAGE_KEY, resetData)
+  displayAllToDos()
+});
